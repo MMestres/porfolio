@@ -1,0 +1,61 @@
+<header class="fixed z-30 backdrop-blur-sm w-full bg-background/70 px-4 xl:px-0 py-2 animate-fade-down animate-duration-1000 hidden">
+  <div class="flex flex-row justify-between items-center max-w-6xl mx-auto">
+    <div class="flex flex-row items-center gap-2">
+      <img src="/mmestres.jpg" alt="Foto de Manuel Mestres" class="size-9 rounded-full">
+      <div class="flex flex-col">
+        <p class="text-lg font-semibold leading-none text-principal">Manuel Mestres</p>
+        <p class="text-sm text-secondary">Full-stack developer</p>
+      </div>
+    </div>
+    <nav class="flex-row gap-4 z-50 hidden lg:flex items-center">
+      <a href="#top">Inicio</a>|
+      <a href="#experiencia">Experiencia</a>|
+      <a href="#proyectos">Proyectos</a>|
+      <a href="#contacto">Contacto</a>
+    </nav>
+    <div class="lg:hidden">
+      <button class="menu-button menu-button-close">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 6l16 0" /><path d="M4 12l16 0" /><path d="M4 18l16 0" onclick="" /></svg>
+    </button>
+    <button class="menu-button menu-button-open hidden">
+      <svg xmlns="http://www.w3.org/2000/svg" class="text-primary" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 6h16" /><path d="M7 12h13" /><path d="M10 18h10" /></svg>
+      </button>
+    </div>
+  </div>
+  <nav class="menu hidden grid-cols-2 animate-fade-down animate-duration-100 gap-1 py-4 text-right">
+    <a class="animate-fade-right animate-duration-1000 py-2" href="#top">Inicio</a>
+    <a class="animate-fade-right animate-duration-1000 animate-delay-100 py-2" href="#experiencia">Experiencia</a>
+    <a class="animate-fade-right animate-duration-1000 animate-delay-200 py-2" href="#proyectos">Proyectos</a>
+    <a class="animate-fade-right animate-duration-1000 animate-delay-300 py-2" href="#contacto">Contacto</a>
+  </nav>
+</header>
+<script>
+	window.onscroll = function() {
+	const position = window.scrollY;
+	const screen = window.screen.availHeight;
+
+	if (document.querySelector('header')?.classList.contains('hidden') && position > (screen * 0.8)) {
+		document.querySelector('header')?.classList.remove('hidden');
+	} else if (!document.querySelector('header')?.classList.contains('hidden') && position < (screen * 0.4)) {
+		document.querySelector('header')?.classList.add('hidden');
+	}
+
+}
+  window.onload = function() {
+    document.querySelector('.menu-button-close')?.addEventListener('click', () => {
+      document.querySelector('.menu-button-close')?.classList.add('hidden');
+      document.querySelector('.menu-button-open')?.classList.remove('hidden');
+      document.querySelector('.menu')?.classList.add('grid');
+      document.querySelector('.menu')?.classList.remove('hidden');
+    });
+
+    document.querySelectorAll('.menu-button-open, .menu a')?.forEach((elem) => {
+        elem.addEventListener('click', () => {
+        document.querySelector('.menu-button-open')?.classList.add('hidden');
+        document.querySelector('.menu-button-close')?.classList.remove('hidden');
+        document.querySelector('.menu')?.classList.add('hidden');
+        document.querySelector('.menu')?.classList.remove('grid');
+      });
+    });
+  }
+</script>

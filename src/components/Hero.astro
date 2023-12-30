@@ -1,0 +1,42 @@
+---
+import GitHub from './icons/GitHub.astro'
+import LinkedIn from './icons/LinkedIn.astro';
+import TagLink from './TagLink.astro'
+import Email from './icons/Email.astro'
+import FileInfo from './icons/FileInfo.astro';
+---
+<div class="h-screen max-w-6xl mx-auto">
+  <div class="h-screen home-header flex flex-col items-center justify-center lg:items-start gap-4 w-screen px-4 xl:px-0">
+    <div class="flex flex-row items-center gap-4">
+      <img src="/mmestres.jpg" alt="Foto de Manuel Mestres" class="size-[3.2rem] md:size-16 lg:size-20 rounded-full">
+      <div class="flex flex-col gap-1">
+        <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-principal">Manuel Mestres</h1>
+        <p class="text-sm md:text-base lg:text-xl font-semibold text-secondary">Full-stack senior developer</p>
+      </div>
+    </div>
+    <p class="aditional text-balance my-2 lg:my-2 text-center lg:text-left max-w-md lg:max-w-2xl lg:text-lg text-principal/90 z-40">+15 años de experiencia creando soluciones web. <strong class="text-principal">Especializado en Java y React.</strong> Comprometido con el código limpio y en constante aprendizaje.</p>
+    <div class="aditional flex flex-row flex-wrap gap-2 justify-center">
+      <TagLink href="https://www.linkedin.com/in/manuel-mestres-baeza-6979a539/">
+        <LinkedIn class="size-4 lg:size-6"/>
+        <span>LinkedIn</span>
+      </TagLink>
+      <TagLink href="https://github.com/MMestres">
+        <GitHub class="size-4 lg:size-6" />
+        <span>GitHub</span>
+      </TagLink>
+      <TagLink href="/Manuel_Mestres_Baeza_cv.pdf">
+        <FileInfo class="size-4 lg:size-6" />
+        <span>CV</span>
+      </TagLink>
+      <TagLink href="mailto:manuel.mestres.baeza@gmail.com">
+        <Email class="size-4 lg:size-6" />
+        <span>Email</span>
+      </TagLink>
+    </div>
+    <nav class="flex-row gap-4 z-50 hidden lg:flex items-center mt-12">
+      <a class="hover:text-secondary hover:scale-105 transition-all duration-1000" href="#experiencia">Experiencia</a>|
+      <a class="hover:text-secondary hover:scale-105 transition-all duration-1000" href="#proyectos">Proyectos</a>|
+      <a class="hover:text-secondary hover:scale-105 transition-all duration-1000" href="#contacto">Contacto</a>
+    </nav>
+  </div>
+</div>
