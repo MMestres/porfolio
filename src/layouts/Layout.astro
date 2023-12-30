@@ -42,3 +42,77 @@ const { title } = Astro.props;
 		scroll-behavior: smooth;
 	}
 </style>
+<script>
+	window.onscroll = function() {
+	const position = window.scrollY;
+	const screen = window.screen.availHeight;
+
+	if (document.querySelector('header')?.classList.contains('hidden') && position > (screen * 0.8)) {
+		document.querySelector('header')?.classList.remove('hidden');
+	} else if (!document.querySelector('header')?.classList.contains('hidden') && position < (screen * 0.4)) {
+		document.querySelector('header')?.classList.add('hidden');
+	}
+
+  var reveal = document.querySelectorAll('.reveal-item')
+    for (var i = 0; i < reveal.length; i++) {
+      var windowHeight = window.innerHeight
+      var revealTop = reveal[i].getBoundingClientRect().top
+      var revealPoint = 150
+      if (revealTop < windowHeight - revealPoint) {
+        reveal[i].classList.add('animate-fade')
+        reveal[i].classList.remove('hidden')
+      }
+    }
+}
+  window.onload = function() {
+    document.querySelector('.menu-button-close')?.addEventListener('click', () => {
+      document.querySelector('.menu-button-close')?.classList.add('hidden');
+      document.querySelector('.menu-button-open')?.classList.remove('hidden');
+      document.querySelector('.menu')?.classList.add('grid');
+      document.querySelector('.menu')?.classList.remove('hidden');
+    });
+
+    document.querySelectorAll('.menu-button-open, .menu a')?.forEach((elem) => {
+        elem.addEventListener('click', () => {
+        document.querySelector('.menu-button-open')?.classList.add('hidden');
+        document.querySelector('.menu-button-close')?.classList.remove('hidden');
+        document.querySelector('.menu')?.classList.add('hidden');
+        document.querySelector('.menu')?.classList.remove('grid');
+      });
+    });
+
+		document.querySelectorAll('.slider')?.forEach((elem) => {
+			const images = elem.querySelectorAll('img');
+			const size = images?.length ?? 0;
+
+			if (size > 0) {
+				const current = 0;
+				images[current].classList.remove('opacity-0');
+				const elemTitle = elem.querySelector('.slider-title')
+				if (elemTitle != null) {
+					elemTitle.innerHTML = images[current].alt
+				}
+
+				if (size > 1) {
+					setTimeout(() => {
+						showNext(images, size, current, elemTitle);
+					}, 7000);
+				}
+			}
+		});
+  }
+
+	function showNext(images: NodeListOf<HTMLImageElement>, size: number, current: number, title: Element | null = null) {
+		const next = (current + 1) % size;
+		images[current].classList.add('opacity-0');
+		images[next].classList.remove('opacity-0');
+
+		if (title != null) {
+			title.innerHTML = images[next].alt
+		}
+
+		setTimeout(() => {
+			showNext(images, size, next, title);
+		}, 7000);
+	}
+</script>

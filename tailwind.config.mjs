@@ -55,7 +55,7 @@ export default {
 				},
 				pulsechevron: {
 					'0%': {
-						opacity: '0.7',
+						opacity: '0.5',
 						transform: 'scale(1)',
 						transform: 'translateY(-5px)'
 					},
@@ -81,7 +81,7 @@ export default {
 						transform: 'translateY(0px)'
 					},
 					'80%': {
-						opacity: '0.7',
+						opacity: '0.5',
 						transform: 'scale(1)',
 						transform: 'translateY(-5px)'
 					},
@@ -91,7 +91,7 @@ export default {
 						transform: 'translateY(0px)'
 					},
 					'100%': {
-						opacity: '0.7',
+						opacity: '0.5',
 						transform: 'scale(1)',
 						transform: 'translateY(-5px)'
 					},
