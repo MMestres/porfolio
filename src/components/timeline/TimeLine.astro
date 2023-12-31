@@ -1,0 +1,10 @@
+---
+import Section from "../Section.astro";
+
+const { Icon, title } = Astro.props
+---
+<Section id={Astro.props.id} class={Astro.props.class} Icon={Icon} title={title}>
+  <ol class="relative border-s border-primary/60 dark:border-gray-700 ml-[18px] pt-8 space-y-10">
+    <slot />
+  </ol>
+</Section>

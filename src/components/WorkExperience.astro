@@ -1,44 +1,40 @@
 ---
-import WorkExperienceItem from "./WorkExperienceItem.astro";
-import BriefCase from "./icons/BriefCase.astro";
+import TimeLineItem from "./timeline/TimeLineItem.astro";
+import BriefCase from "../components/icons/BriefCase.astro";
+import TimeLine from "./timeline/TimeLine.astro";
+import TimeLineItemSliderImage from "./timeline/TimeLineItemSliderImage.astro";
 ---
-<section id="work-experience" class="max-w-6xl mx-auto w-screen px-4 xl:px-0 pt-20 mb-20">
-  <div class="flex gap-2 md:gap-4 items-end mb-8 pl-1 lg:pl-0">
-    <BriefCase class="size-8 md:size-10 text-primary relative" />
-    <h2 class="text-3xl md:text-4xl font-semibold leading-none underline ml-2">Experiencia laboral</h2>
-  </div>
-  <ol class="relative border-s border-primary/60 dark:border-gray-700 ml-[18px] pt-8 space-y-10">
-    <WorkExperienceItem logo="/inetum.jpg" date="2017 - Actualmente" company="Inetum" employ="Desarrollador full stack" link="https://www.inetum.com/es">
-      <p>Actualmente ampliando y migrando la aplicación para solicitud de ayudas de FranceAgriMer <strong>Viti Investissement</strong>. Aplicación desarrollada con <em>Spring Boot</em> para backend y <em>Angular</em> para frontend.</p>
-      <p>También he participado en el desarrollo de aplicaciones como <strong>Chronotime Workspace</strong>, aplicación de gestión y actividad de recursos humanos, con tecnologías como <em>Java</em> y <em>Backbone</em>.</p>
-      <div slot="images">
-        <!-- <img src="/lois.png" alt="Chronotime" class="aspect-video object-cover object-top max-w-[70vw] lg:max-w-max lg:h-56 absolute inset-0 transition-opacity duration-[2s]" />
-        <img src="/valentinsanchez.png" alt="Viti Investissement" class="aspect-video object-cover object-top max-w-[70vw] lg:max-w-max lg:h-56 absolute inset-0 opacity-0 transition-opacity duration-[2s]" /> -->
-      </div>
-    </WorkExperienceItem>
-    <WorkExperienceItem logo="/render.jpeg" date="2016" company="Render" employ="Desarrollador PHP" link="https://render.com.es/">
-      <p>Creación de ecommerce y páginas corporativas con <em>Prestashop</em> y <em>Wordpress</em> para <strong>Lois Jeans</strong>, <strong>Valentín Sánchez</strong>, <strong>Paredes Seguridad</strong> o <strong>24hrs</strong>.</p>
-      <div slot="images">
-        <img src="/lois.png" alt="Lois Jeans" class="aspect-video object-cover object-top max-w-[70vw] lg:max-w-max lg:h-56 absolute inset-0 transition-opacity duration-[2s]" />
-        <img src="/valentinsanchez.png" alt="Valentín Sánchez" class="aspect-video object-cover object-top max-w-[70vw] lg:max-w-max lg:h-56 absolute inset-0 opacity-0 transition-opacity duration-[2s]" />
-        <img src="/paredes.png" alt="Paredes Seguridad" class="aspect-video object-cover object-top max-w-[70vw] lg:max-w-max lg:h-56 absolute inset-0 opacity-0 transition-opacity duration-[2s]" />
-        <img src="/24hrs.png" alt="24hrs" class="aspect-video object-cover object-top max-w-[70vw] lg:max-w-max lg:h-56 absolute inset-0 opacity-0 transition-opacity duration-[2s]" />
-      </div>
-    </WorkExperienceItem>
-    <WorkExperienceItem logo="/3dids.jpg" date="2012 - 2015" company="3dids" employ="Desarrollador PHP" link="https://www.3dids.com/">
-      <p>Desarrollo y creación de ecommerce con <em>Yii Framework</em> de <em>PHP</em> para diversos clientes como <strong>Cajeando</strong>, <strong>Fundesem</strong>, <strong>Gadea</strong>, <strong>Lodi</strong> o <strong>Unisa</strong>.</p>
-      <div slot="images">
-        <img src="/fundesem.png" alt="Fundesem" class="aspect-video object-cover object-top max-w-[70vw] lg:max-w-max lg:h-56 absolute inset-0 transition-opacity duration-[2s]" />
-        <img src="/gadea.png" alt="Gadea" class="aspect-video object-cover object-top max-w-[70vw] lg:max-w-max lg:h-56 absolute inset-0 opacity-0 transition-opacity duration-[2s]" />
-        <img src="/lodi.png" alt="Lodi" class="aspect-video object-cover object-top max-w-[70vw] lg:max-w-max lg:h-56 absolute inset-0 opacity-0 transition-opacity duration-[2s]" />
-        <img src="/unisa.png" alt="Unisa" class="aspect-video object-cover object-top max-w-[70vw] lg:max-w-max lg:h-56 absolute inset-0 opacity-0 transition-opacity duration-[2s]" />
-      </div>
-    </WorkExperienceItem>
-    <WorkExperienceItem class="pb-8" logo="/cesser.png" date="2009 - 2012" company="Cesser" employ="Desarrollador Java">
-      <p>Personalización de aplicaciones web desarrolladas con <em>SIGEM (Sistema de gestión municipal)</em> para la administración electrónica de expedientes en entidades públicas.</p>
-      <div slot="images">
-        <img src="/sigem.png" alt="SIGEM" class="aspect-video object-cover object-top max-w-[70vw] lg:max-w-max lg:h-56 absolute inset-0 transition-opacity duration-[2s]" />
-      </div>
-    </WorkExperienceItem>
-  </ol>
-</section>
+<TimeLine id="work-experience" class={Astro.props.class} Icon={BriefCase} title="Experiencia laboral">
+  <TimeLineItem logo="/inetum.jpg" date="2017 - Actualmente" company="Inetum" employ="Desarrollador full stack" link="https://www.inetum.com/es">
+    <p>Actualmente ampliando y migrando la aplicación para solicitud de ayudas de FranceAgriMer <strong>Viti Investissement</strong>. Aplicación desarrollada con <em>Spring Boot</em> para backend y <em>Angular</em> para frontend.</p>
+    <p>También he participado en el desarrollo de aplicaciones como <strong>Chronotime Workspace</strong>, aplicación de gestión y actividad de recursos humanos, con tecnologías como <em>Java</em> y <em>Backbone</em>.</p>
+    <div slot="images">
+      <TimeLineItemSliderImage src="/lois.png" alt="Chronotime" />
+      <TimeLineItemSliderImage src="/valentinsanchez.png" alt="Viti Investissement" />
+    </div>
+  </TimeLineItem>
+  <TimeLineItem logo="/render.jpeg" date="2016" company="Render" employ="Desarrollador PHP" link="https://render.com.es/">
+    <p>Creación de ecommerce y páginas corporativas con <em>Prestashop</em> y <em>Wordpress</em> para <strong>Lois Jeans</strong>, <strong>Valentín Sánchez</strong>, <strong>Paredes Seguridad</strong> o <strong>24hrs</strong>.</p>
+    <div slot="images">
+      <TimeLineItemSliderImage src="/lois.png" alt="Lois Jeans" />
+      <TimeLineItemSliderImage src="/valentinsanchez.png" alt="Valentín Sánchez" />
+      <TimeLineItemSliderImage src="/paredes.png" alt="Paredes Seguridad" />
+      <TimeLineItemSliderImage src="/24hrs.png" alt="24hrs" />
+    </div>
+  </TimeLineItem>
+  <TimeLineItem logo="/3dids.jpg" date="2012 - 2015" company="3dids" employ="Desarrollador PHP" link="https://www.3dids.com/">
+    <p>Desarrollo y creación de ecommerce con <em>Yii Framework</em> de <em>PHP</em> para diversos clientes como <strong>Cajeando</strong>, <strong>Fundesem</strong>, <strong>Gadea</strong>, <strong>Lodi</strong> o <strong>Unisa</strong>.</p>
+    <div slot="images">
+      <TimeLineItemSliderImage src="/fundesem.png" alt="Fundesem" />
+      <TimeLineItemSliderImage src="/gadea.png" alt="Gadea" />
+      <TimeLineItemSliderImage src="/lodi.png" alt="Lodi" />
+      <TimeLineItemSliderImage src="/unisa.png" alt="Unisa" />
+    </div>
+  </TimeLineItem>
+  <TimeLineItem class="pb-8" logo="/cesser.png" date="2009 - 2012" company="Cesser" employ="Desarrollador Java">
+    <p>Personalización de aplicaciones web desarrolladas con <em>SIGEM (Sistema de gestión municipal)</em> para la administración electrónica de expedientes en entidades públicas.</p>
+    <div slot="images">
+      <TimeLineItemSliderImage src="/sigem.png" alt="SIGEM" />
+    </div>
+  </TimeLineItem>
+</TimeLine>
