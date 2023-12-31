@@ -2,9 +2,9 @@
 const { Icon, title} = Astro.props
 ---
 <section id={Astro.props.id} class={`max-w-6xl mx-auto w-screen px-4 xl:px-0 pt-20 mb-20 ${Astro.props.class}`}>
-  <div class="flex gap-2 md:gap-4 items-end mb-8 pl-1 lg:pl-0">
+  <header class="flex gap-2 md:gap-4 items-end mb-8 pl-1 lg:pl-0">
     {Icon && <Icon class="size-8 md:size-10 text-primary relative" />}
     <h2 class="text-3xl md:text-4xl font-semibold leading-none underline ml-2">{title}</h2>
-  </div>
+  </header>
   <slot />
 </section>
