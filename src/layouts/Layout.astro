@@ -1,8 +1,8 @@
 ---
 import Background from '../components/layout/Background.astro';
-import Hero from '../components/Hero.astro';
 import Light from '../components/layout/Light.astro';
 import Header from '../components/layout/Header.astro';
+import Footer from '../components/layout/Footer.astro';
 import '@fontsource-variable/onest';
 
 interface Props {
@@ -29,6 +29,7 @@ const { title } = Astro.props;
 		<main class="z-10">
 			<slot />
 		</main>
+		<Footer />
 	</body>
 </html>
 <style is:global>
@@ -46,8 +47,6 @@ const { title } = Astro.props;
 	window.onscroll = function() {
 		const position = window.scrollY;
 		const screen = window.screen.availHeight;
-		const mobile = window.screen.availWidth < 768;
-		const revealSelector = mobile ? '.reveal-item-mobile,.reveal-item' : '.reveal-item';
 
 		if (document.querySelector('header')?.classList.contains('hidden') && position > (screen * 0.8)) {
 			document.querySelector('header')?.classList.remove('hidden');
@@ -55,9 +54,7 @@ const { title } = Astro.props;
 			document.querySelector('header')?.classList.add('hidden');
 		}
 
-
-
-		var reveal = document.querySelectorAll(revealSelector)
+		var reveal = document.querySelectorAll('.reveal-item')
 		for (var i = 0; i < reveal.length; i++) {
 			var windowHeight = window.innerHeight
 			var revealTop = reveal[i].getBoundingClientRect().top
@@ -86,12 +83,15 @@ const { title } = Astro.props;
       });
     });
 
-		document.querySelectorAll('.slider')?.forEach((elem) => {
+		document.querySelectorAll('.slider')?.forEach((elem, index) => {
 			const images = elem.querySelectorAll('img');
 			const size = images?.length ?? 0;
 
 			if (size > 0) {
 				const current = 0;
+				for (let i = 1; i < size; i++) {
+					images[i].classList.add('opacity-0');
+				}
 				images[current].classList.remove('opacity-0');
 				const elemTitle = elem.querySelector('.slider-title')
 				if (elemTitle != null) {
@@ -101,7 +101,7 @@ const { title } = Astro.props;
 				if (size > 1) {
 					setTimeout(() => {
 						showNext(images, size, current, elemTitle);
-					}, 7000);
+					}, 0 + (index++ * 4000));
 				}
 			}
 		});
@@ -118,6 +118,6 @@ const { title } = Astro.props;
 
 		setTimeout(() => {
 			showNext(images, size, next, title);
-		}, 7000);
+		}, 12000);
 	}
 </script>

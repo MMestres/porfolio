@@ -1,10 +1,14 @@
 ---
 import TimeLineItem from "./timeline/TimeLineItem.astro";
-import BriefCase from "../components/icons/BriefCase.astro";
 import TimeLine from "./timeline/TimeLine.astro";
 import TimeLineItemSliderImage from "./timeline/TimeLineItemSliderImage.astro";
+import SectionSeparator from "./layout/SectionSeparator.astro";
 ---
-<TimeLine id="work-experience" class={Astro.props.class} Icon={BriefCase} title="Experiencia laboral">
+<SectionSeparator title="Uno para todos" class="pb-8">
+  <p class="text-principal/90 text-xl reveal-item opacity-0 animate-duration-1000 animate-delay-300">He trabajado en multitud de tecnologías, aunque estoy especializado en <strong>Java</strong>. Manejo herramientas de análisis, testing, integración y despliegue para garantizar la <strong>calidad del código</strong> y la <strong>eficiencia en el desarrollo</strong>. Soy de los que piensan que trabajar en equipo no es coordinar trabajo:</p>
+  <p class="reveal-item opacity-0 animate-duration-1000 animate-delay-300"><strong class="text-principal font-semibold text-2xl">es ayudar a los demás a crecer juntos</strong></p>
+</SectionSeparator>
+<TimeLine id="work-experience" class={Astro.props.class} separator={true}>
   <TimeLineItem logo="/inetum.jpg" date="2017 - Actualmente" company="Inetum" employ="Desarrollador full stack" link="https://www.inetum.com/es">
     <p>Actualmente ampliando y migrando la aplicación para solicitud de ayudas de FranceAgriMer <strong>Viti Investissement</strong>. Aplicación desarrollada con <em>Spring Boot</em> para backend y <em>Angular</em> para frontend.</p>
     <p>También he participado en el desarrollo de aplicaciones como <strong>Chronotime Workspace</strong>, aplicación de gestión y actividad de recursos humanos, con tecnologías como <em>Java</em> y <em>Backbone</em>.</p>
@@ -23,7 +27,7 @@ import TimeLineItemSliderImage from "./timeline/TimeLineItemSliderImage.astro";
     </div>
   </TimeLineItem>
   <TimeLineItem logo="/3dids.jpg" date="2012 - 2015" company="3dids" employ="Desarrollador PHP" link="https://www.3dids.com/">
-    <p>Desarrollo y creación de ecommerce con <em>Yii Framework</em> de <em>PHP</em> para diversos clientes como <strong>Cajeando</strong>, <strong>Fundesem</strong>, <strong>Gadea</strong>, <strong>Lodi</strong> o <strong>Unisa</strong>.</p>
+    <p>Desarrollo y creación de ecommerce con <em>Yii Framework</em> de <em>PHP</em> para diversos clientes como <strong>Fundesem</strong>, <strong>Gadea</strong>, <strong>Lodi</strong> o <strong>Unisa</strong>.</p>
     <div slot="images">
       <TimeLineItemSliderImage src="/fundesem.png" alt="Fundesem" />
       <TimeLineItemSliderImage src="/gadea.png" alt="Gadea" />
@@ -31,7 +35,7 @@ import TimeLineItemSliderImage from "./timeline/TimeLineItemSliderImage.astro";
       <TimeLineItemSliderImage src="/unisa.png" alt="Unisa" />
     </div>
   </TimeLineItem>
-  <TimeLineItem class="pb-8" logo="/cesser.png" date="2009 - 2012" company="Cesser" employ="Desarrollador Java">
+  <TimeLineItem logo="/cesser.png" date="2009 - 2012" company="Cesser" employ="Desarrollador Java">
     <p>Personalización de aplicaciones web desarrolladas con <em>SIGEM (Sistema de gestión municipal)</em> para la administración electrónica de expedientes en entidades públicas.</p>
     <div slot="images">
       <TimeLineItemSliderImage src="/sigem.png" alt="SIGEM" />
