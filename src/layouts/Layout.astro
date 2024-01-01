@@ -136,6 +136,7 @@ const { title } = Astro.props;
 			}
 		});
 
+		const height = document.querySelector(`.card-slider-item-${slider}-${item}`)?.clientHeight ?? 0;
 		document.querySelectorAll(`.card-slider-item-${slider}`)?.forEach((elem) => {
 			if (elem?.classList.contains(`card-slider-item-${slider}-${item}`) === true) {
 				setTimeout(() => {
@@ -144,7 +145,7 @@ const { title } = Astro.props;
 			} else {
 				elem.querySelector('img')?.classList.remove('animate-pulseprimary');
 			}
-			elem.setAttribute('style', `top: -${item * 400}px`);
+			elem.setAttribute('style', `top: -${item * height}px`);
 		});
 	}
 
