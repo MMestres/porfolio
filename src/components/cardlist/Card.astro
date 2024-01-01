@@ -1,14 +1,12 @@
 ---
-import ExternalLink from "../icons/ExternalLink.astro";
-
-const {image, date, link, institution, nogrow} = Astro.props;
+const {image, date, institution, nogrow, imgClass} = Astro.props;
 ---
-<div class={`group border border-principal/10 rounded-lg bg-background/30 backdrop-blur-sm p-4 py-6 md:p-6 lg:p-8 reveal-item opacity-0 animate-duration-1000 animate-delay-300 ${nogrow === true ? '' : 'flex-grow lg:flex-grow-0'}`}>
+<div class={`border border-principal/10 rounded-lg bg-background/30 backdrop-blur-sm p-4 py-6 md:p-6 lg:p-8 reveal-item opacity-0 animate-duration-1000 animate-delay-300 ${nogrow === true ? '' : 'flex-grow lg:flex-grow-0'}`}>
   <div class="flex flex-row gap-4 border-b border-principal/10 pb-4">
-    <img src={image} class="size-10 rounded-full" />
+    <img src={image} class={`h-10 aspect-square rounded-full ${imgClass}`} />
     <div class="flex flex-col">
       <time class="mb-1 font-normal leading-none text-principal/80 text-sm">{date}</time>
-      <a href={link} target="_blank" rel="noopener noreferrer" class="font-semibold text-secondary group-hover:text-secondary/80 transition-colors duration-1000">{institution}<ExternalLink class="transition-opacity duration-1000 inline size-4 ml-2 opacity-60 lg:opacity-0 group-hover:opacity-60 relative -top-[2px]" /></a>
+      <span class="font-semibold text-secondary">{institution}</span>
     </div>
   </div>
   <h3 class="pt-4 text-lg md:text-xl text-left font-semibold">
