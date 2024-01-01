@@ -1,10 +1,12 @@
 ---
 import Bento from "./bento/Bento.astro";
-import Code from "./icons/Code.astro";
 import BentoItem from "./bento/BentoItem.astro";
+import TitleSeparator from "./layout/TitleSeparator.astro";
 ---
-
-<Bento id="projects" title="Proyectos personales" Icon={Code} class={Astro.props.class}>
+<TitleSeparator id="projects" title="Show me the code!" class="pt-12">
+  <p class="text-principal/90 text-xl reveal-item opacity-0 animate-duration-1000 animate-delay-300">Una selección de proyectos personales y demos.<br/>Porque el movimiento se demuestra andando.</p>
+</TitleSeparator>
+<Bento class="mb-28">
   <BentoItem title="Front-end" subtitle="Una selección de proyectos con tecnologías front-end" class="col-span-5 md:col-span-2 lg:col-span-1 md:row-span-2"></BentoItem>
   <BentoItem title="Titulo de prueba" class="col-span-5 md:col-span-1"></BentoItem>
   <BentoItem title="BlackStageStudio" class="col-span-5 md:col-span-2 md:row-span-2 lg:col-span-3 lg:row-span-1">Página corporativa para un estudio de grabación.</BentoItem>
