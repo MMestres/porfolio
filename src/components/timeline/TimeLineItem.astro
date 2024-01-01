@@ -15,8 +15,8 @@ const { date, company, logo, employ, link } = Astro.props
         <slot>
       </div>
     </div>
-    <TimeLineItemSlider class="my-10 lg:my-0 lg:place-self-end mx-auto lg:mx-0">
+    {Astro.slots.has("images") && <TimeLineItemSlider class="my-10 lg:my-0 lg:place-self-end mx-auto lg:mx-0">
       <slot name="images" />
-    </TimeLineItemSlider>
+    </TimeLineItemSlider>}
   </div>
 </li>
