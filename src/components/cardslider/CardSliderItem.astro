@@ -1,0 +1,13 @@
+---
+const { image, name, rol } = Astro.props
+---
+<div class="relative flex flex-col items-center justify-between h-[400px] transition-all top-0 duration-1000 p-4">
+  <img src={image} class="size-20 rounded-full" />
+  <p class="text-3xl text-pretty">
+    "<slot />"
+  </p>
+  <div class="flex flex-col">
+    <p class="text-2xl font-bold text-primary">{name}</p>
+    <p>{rol}</p>
+  </div>
+</div>

@@ -44,30 +44,8 @@ const { title } = Astro.props;
 	}
 </style>
 <script>
-	window.onscroll = function() {
-		const position = window.scrollY;
-		const screen = window.screen.availHeight;
-
-		if (document.querySelector('header')?.classList.contains('hidden') && position > (screen * 0.8)) {
-			document.querySelector('header')?.classList.remove('hidden');
-		} else if (!document.querySelector('header')?.classList.contains('hidden') && position < (screen * 0.4)) {
-			document.querySelector('header')?.classList.add('hidden');
-		}
-
-		var reveal = document.querySelectorAll('.reveal-item')
-		for (var i = 0; i < reveal.length; i++) {
-			var windowHeight = window.innerHeight
-			var revealTop = reveal[i].getBoundingClientRect().top
-			var revealPoint = 150
-			if (revealTop < windowHeight - revealPoint) {
-				reveal[i].classList.add('animate-fade')
-				reveal[i].classList.remove('hidden')
-			}
-		}
-	}
-
-  window.onload = function() {
-    document.querySelector('.menu-button-close')?.addEventListener('click', () => {
+	function setUpMenu() {
+		document.querySelector('.menu-button-close')?.addEventListener('click', () => {
       document.querySelector('.menu-button-close')?.classList.add('hidden');
       document.querySelector('.menu-button-open')?.classList.remove('hidden');
       document.querySelector('.menu')?.classList.add('grid');
@@ -82,7 +60,9 @@ const { title } = Astro.props;
         document.querySelector('.menu')?.classList.remove('grid');
       });
     });
+	}
 
+	function setUpTimelineSlider() {
 		document.querySelectorAll('.slider')?.forEach((elem, index) => {
 			const images = elem.querySelectorAll('img');
 			const size = images?.length ?? 0;
@@ -105,7 +85,7 @@ const { title } = Astro.props;
 				}
 			}
 		});
-  }
+	}
 
 	function showNext(images: NodeListOf<HTMLImageElement>, size: number, current: number, title: Element | null = null) {
 		const next = (current + 1) % size;
@@ -119,5 +99,80 @@ const { title } = Astro.props;
 		setTimeout(() => {
 			showNext(images, size, next, title);
 		}, 12000);
+	}
+
+	function setUpCardSlider() {
+		document.querySelectorAll('.card-slider')?.forEach((slider, indexSlider) => {
+			slider.classList.add(`card-slider-${indexSlider}`);
+
+			const items = slider.querySelectorAll('.card-slider-items > div');
+			const buttons = slider.querySelectorAll('.card-slider-buttons > button');
+
+			const size = Math.min(items.length, buttons.length);
+			if (size > 0) {
+				items.forEach((item, indexItem) => {
+					item.classList.add(`card-slider-item-${indexSlider}-${indexItem}`);
+					item.classList.add(`card-slider-item-${indexSlider}`);
+					buttons[indexItem].classList.add(`card-slider-button-${indexSlider}-${indexItem}`);
+					buttons[indexItem].classList.add(`card-slider-button-${indexSlider}`);
+					buttons[indexItem].addEventListener('click', () => {
+						onClickButtonCardSlider(indexSlider, indexItem);
+					});
+				});
+			}
+		});
+	}
+
+	function onClickButtonCardSlider(slider: number, item: number) {
+		document.querySelectorAll(`.card-slider-button-${slider}`)?.forEach((button) => {
+			if (button?.classList.contains(`card-slider-button-${slider}-${item}`) === true) {
+				button?.classList.remove('bg-amber-500');
+				button?.classList.remove('opacity-70');
+				button?.classList.add('bg-secondary');
+			} else {
+				button?.classList.add('bg-amber-500');
+				button?.classList.add('opacity-70');
+				button?.classList.remove('bg-secondary');
+			}
+		});
+
+		document.querySelectorAll(`.card-slider-item-${slider}`)?.forEach((elem) => {
+			if (elem?.classList.contains(`card-slider-item-${slider}-${item}`) === true) {
+				setTimeout(() => {
+					elem.querySelector('img')?.classList.add('animate-pulseprimary');
+				}, 1200);
+			} else {
+				elem.querySelector('img')?.classList.remove('animate-pulseprimary');
+			}
+			elem.setAttribute('style', `top: -${item * 400}px`);
+		});
+	}
+
+  window.onload = function() {
+		setUpMenu();
+		setUpTimelineSlider();
+		setUpCardSlider();
+  }
+
+	window.onscroll = function() {
+		const position = window.scrollY;
+		const screen = window.screen.availHeight;
+
+		if (document.querySelector('header')?.classList.contains('hidden') && position > (screen * 0.8)) {
+			document.querySelector('header')?.classList.remove('hidden');
+		} else if (!document.querySelector('header')?.classList.contains('hidden') && position < (screen * 0.4)) {
+			document.querySelector('header')?.classList.add('hidden');
+		}
+
+		var reveal = document.querySelectorAll('.reveal-item')
+		for (var i = 0; i < reveal.length; i++) {
+			var windowHeight = window.innerHeight
+			var revealTop = reveal[i].getBoundingClientRect().top
+			var revealPoint = 150
+			if (revealTop < windowHeight - revealPoint) {
+				reveal[i].classList.add('animate-fade')
+				reveal[i].classList.remove('hidden')
+			}
+		}
 	}
 </script>
