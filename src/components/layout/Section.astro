@@ -4,10 +4,6 @@ const { Icon, title, separator } = Astro.props
 <div class="relative">
   {separator === true && <div class="absolute inset-0 h-[350px] bg-gradient-to-b from-background/60 to-transparent from-25% -z-10"></div>}
   <section id={Astro.props.id} class={`max-w-6xl mx-auto w-screen px-4 xl:px-0 ${title ? 'pt-20' : ''} mb-20 ${Astro.props.class}`}>
-    {title && <header class="flex gap-2 md:gap-4 items-end mb-8 pl-1 lg:pl-0">
-      {Icon && <Icon class="size-8 md:size-10 text-primary relative mr-1" />}
-      <h2 class="text-3xl md:text-4xl font-semibold leading-none underline">{title}</h2>
-    </header>}
     <slot />
   </section>
 </div>

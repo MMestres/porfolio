@@ -1,9 +1,7 @@
 ---
 import Section from "../layout/Section.astro";
-
-const { Icon, title, separator } = Astro.props
 ---
-<Section id={Astro.props.id} class={Astro.props.class} Icon={Icon} title={title} separator={separator}>
+<Section id={Astro.props.id} class={Astro.props.class} separator={Astro.props.separator}>
   <ol class="relative border-s border-primary/60 dark:border-gray-700 ml-[18px] space-y-10">
     <slot />
   </ol>

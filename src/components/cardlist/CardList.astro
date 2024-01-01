@@ -1,10 +1,10 @@
 ---
 import Section from '../layout/Section.astro'
 
-const { id, title, Icon, separator } = Astro.props
+const { id, separator } = Astro.props
 ---
 
-<Section id={id} title={title} Icon={Icon} separator={separator}>
+<Section id={id} separator={separator}>
   <div class="flex flex-row flex-wrap w-full gap-4 justify-center">
     <slot />
   </div>
