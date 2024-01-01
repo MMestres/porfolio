@@ -1,6 +1,33 @@
 ---
 import TitleSeparator from './layout/TitleSeparator.astro'
+import Section from './layout/Section.astro'
 ---
 <TitleSeparator id="testimonios" title="Testimonios" class="pt-12">
   <p class="text-principal/90 text-xl reveal-item opacity-0 animate-duration-1000 animate-delay-300">Parece que algunas personas con las que he trabajado tienen algunas cosas buenas que decir</p>
 </TitleSeparator>
+<Section class="mt-4">
+  <div class="w-full max-w-2xl mx-auto text-center relative h-[400px] overflow-y-hidden">
+    <div class="flex flex-col items-center justify-between h-[400px]">
+      <img src="/mmestres.jpg" class="size-20 rounded-full" />
+      <p class="text-3xl text-pretty">"Este chico es increíble, programa como los dioses y es un crack en el diseño. Lo recomiendo 100%. Además es muy simpático y agradable."</p>
+      <div class="flex flex-col">
+        <p class="text-2xl font-bold text-primary">Yo mismo</p>
+        <p>Front-ent developer</p>
+      </div>
+    </div>
+    <div class="flex flex-col items-center justify-between h-[400px]">
+      <img src="/mmestres.jpg" class="size-20 rounded-full" />
+      <p class="text-3xl text-pretty">"Es un muchacho excelente, porque es un muchacho excelente y siempre lo será y siempre lo será... y siempre lo será...."</p>
+      <div class="flex flex-col">
+        <p class="text-2xl font-bold text-primary">Él</p>
+        <p>El cumpleañero</p>
+      </div>
+    </div>
+  </div>
+  <div class="w-full max-w-2xl mx-auto text-center mt-8">
+    <div class="flex flex-row justify-center gap-3">
+      <button class="size-5 bg-secondary hover:bg-secondary/70 principal border-background/80 rounded-full" />
+      <button class="size-5 bg-principal/40 hover:bg-secondary/70 principal border-background/80 rounded-full" />
+    </div>
+  </div>
+</Section>
