@@ -3,7 +3,7 @@ const { Icon, title, separator } = Astro.props
 ---
 <div class="relative">
   {separator === true && <div class="absolute inset-0 h-[350px] bg-gradient-to-b from-background/60 to-transparent from-25% -z-10"></div>}
-  <section id={Astro.props.id} class={`max-w-6xl mx-auto w-screen px-4 xl:px-0 ${title ? 'pt-20' : ''} mb-20 ${Astro.props.class}`}>
+  <section id={Astro.props.id} class={`max-w-6xl mx-auto w-full px-4 xl:px-0 ${title ? 'pt-20' : ''} mb-20 ${Astro.props.class}`}>
     <slot />
   </section>
 </div>
