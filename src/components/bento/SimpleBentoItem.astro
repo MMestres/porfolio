@@ -1,0 +1,11 @@
+---
+import ExternalLink from '../icons/ExternalLink.astro'
+
+interface Props {
+  class?: string
+}
+
+---
+<article class={`${Astro.props.class} group relative`}>
+  <slot />
+</article>
