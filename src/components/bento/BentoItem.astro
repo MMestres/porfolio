@@ -15,7 +15,7 @@ const { title, subtitle, background, centerImage, link } = Astro.props
 <article class={`${Astro.props.class} group relative rounded-xl backdrop-blur-md border border-principal/10 hover:border-principal/20 shadow-inner shadow-white/10 overflow-hidden transition-all duration-1000 opacity-0 reveal-item animate-duration-1000 animate-delay-300 z-10`}>
   {background && <img src={background} class={`absolute inset-0 w-full h-full object-cover ${centerImage === true ? 'objet-center' : 'object-left-top'} rounded-xl scale-100 group-hover:scale-125 z-0 transition-all duration-1000 group-hover:saturate-50`} />}
   <div class="absolute inset-0 w-full h-full bg-gradient-to-t from-black via-black/60 to-transparent transition-all duration-1000 opacity-70 group-hover:opacity-100"></div>
-  <div class="z-20 relative p-8 flex flex-col w-full h-full justify-end opacity-60 group-hover:opacity-100 transition-all duration-1000">
+  <div class="z-20 relative p-5 flex flex-col w-full h-full justify-end opacity-60 group-hover:opacity-100 transition-all duration-1000">
     {title && <h3 class="text-3xl text-primary font-semibold">
       {link && <a target="_blank" href={link}>{title}<ExternalLink class="transition-opacity duration-1000 inline size-5 ml-1 opacity-80 lg:opacity-0 group-hover:opacity-80" /></a>}
       {!link && title}
