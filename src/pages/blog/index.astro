@@ -1,0 +1,17 @@
+---
+import LayoutBlog from "../../layouts/LayoutBlog.astro";
+import { getCollection, getEntry } from 'astro:content';
+
+// Get all entries from a collection.
+// Requires the name of the collection as an argument.
+// Example: retrieve `src/content/blog/**`
+const allBlogPosts = await getCollection('blog');
+---
+<LayoutBlog title="Blog" description="Blog de la página de Manuel Mestres. Full-stack developer.">
+  {allBlogPosts.map((post) => (
+    <div>
+      <a href={`/blog/${post.slug}`}>{post.data.title}</a>
+      <p>{post.data.subtitle}</p>
+    </div>
+  ))
+</LayoutBlog>
