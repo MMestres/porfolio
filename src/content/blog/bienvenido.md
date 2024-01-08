@@ -5,9 +5,6 @@ slug: bienvenido
 date: 2024-01-02
 image: /project/this.webp
 ---
-# ¡Bienvenido!
-## Año nuevo, propósitos nuevos
-
 Acaba de empezar el año y yo empiezo esta web.
 
 Soy Manuel Mestres, desarrollador full-stack desde hace más de 15 años.

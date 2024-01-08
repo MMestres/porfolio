@@ -5,9 +5,6 @@ slug: primer-componente
 date: 2024-01-06
 image: /project/qr-code.webp
 ---
-# Primer componente
-## Generador y lector de códigos QR
-
 Está terminando la primera semana del año y primer paso cumplido.
 
 He trabajado un poco en la sección de blog (este artículo también se publicará tarde) y en la sección de proyectos. Pero lo más importante tenemos primer componente para el porfolio: un generador y lector de códigos QR.
