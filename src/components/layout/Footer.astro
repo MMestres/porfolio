@@ -1,7 +1,7 @@
 ---
 const bottom = Astro.props.bottom
 ---
-<footer class={`w-full bg-background/60 z-40 ${bottom === true ? 'fixed bottom-0 py-1' : 'py-4'}`}>
+<footer class={`w-full bg-background/60 z-40 ${bottom === true ? 'fixed bottom-0 py-1 animate-fade-up animate-duration-1000' : 'py-4'}`}>
   <div class={`w-full max-w-6xl flex ${bottom === true ?'flex-row' :'flex-col'} items-center justify-center text-principal/60 mx-auto ${bottom === true ?'gap-2' :''}`}>
     <a href="https://github.com/MMestres/porfolio" target="_blank" rel="noopener noreferrer"
     class={`hover:underline ${bottom === true ? 'text-xs' : ''}`}>Puedes ver el código de está página aquí.</a>
