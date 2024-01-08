@@ -1,0 +1,14 @@
+---
+import PostList from "./blog/PostList.astro";
+import SectionSeparator from "./layout/SectionSeparator.astro";
+import { getCollection } from 'astro:content';
+
+const allBlogPosts = await getCollection('blog');
+const visiblePosts = [...allBlogPosts].sort((a, b) => {
+  return b.data.date.getDate() - a.data.date.getDate();
+}).slice(0, 3);
+---
+<SectionSeparator id="blog" title="Unas últimas palabras">
+  <p class="text-principal/90 text-lg lg:text-xl reveal-item opacity-0 animate-duration-1000 animate-delay-300">Los últimos artículos del blog donde hablo de los proyectos que voy realizando y algunas cosas interesantes que encuentro.</p>
+</SectionSeparator>
+<PostList posts={visiblePosts} showMore animateReveal />

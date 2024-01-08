@@ -14,11 +14,13 @@ interface Props {
     };
   }
   principal?: boolean
+  itemReveal?: boolean
 }
 const post = Astro.props.post
 const principal = Astro.props.principal
+const itemReveal = Astro.props.itemReveal ?? false
 ---
-<a href={`/blog/${post.slug}`} class={`group relative p-4 border border-transparent rounded-lg hover:bg-background/40 hover:backdrop-blur-sm flex flex-row ${principal ? 'lg:row-span-2 lg:items-end' : ''} items-center transition-all duration-1000 hover:shadow-md shadow-background/60 animate-fade animate-duration-1000 animate-delay-500 w-full`}>
+<a href={`/blog/${post.slug}`} class={`group relative p-4 border border-transparent rounded-lg hover:bg-background/40 hover:backdrop-blur-sm flex flex-row ${principal ? 'lg:row-span-2 lg:items-end' : ''} items-center transition-all duration-1000 hover:shadow-md shadow-background/60 w-full ${itemReveal ? 'reveal-item opacity-0' : 'animate-fade animate-duration-1000 animate-delay-500'}`}>
   {principal && <span class="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-transparent to-background z-10 rounded-lg hidden lg:block"></span>}
   <div class="grid grid-cols-[auto,1fr] md:flex md:flex-row items-center gap-4 rounded-lg w-full">
     <PostDate date={post.data.date} class='z-20' />

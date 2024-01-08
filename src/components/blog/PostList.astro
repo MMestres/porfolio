@@ -2,6 +2,7 @@
 import Section from "../layout/Section.astro";
 import SectionSeparator from "../layout/SectionSeparator.astro";
 import PostCard from "./PostCard.astro";
+import ArrowNarrowRight from "../icons/ArrowNarrowRight.astro";
 
 interface Props {
   posts : Array<{
@@ -16,17 +17,24 @@ interface Props {
         image?: string | undefined;
     };
   }>
-  title: string
+  title?: string
+  showMore?: boolean
+  animateReveal?: boolean
 }
 
 const posts = Astro.props.posts;
+const showMore = Astro.props.showMore ?? false;
+const animateReveal = Astro.props.animateReveal ?? false;
 
 ---
-<SectionSeparator title={Astro.props.title} autoreveal>
+{Astro.props.title && <SectionSeparator title={Astro.props.title} autoreveal>
   <slot/>
-</SectionSeparator>
+</SectionSeparator>}
 <Section class="grid grid-cols-1 lg:grid-cols-2 gap-2" separator>
   {posts.map((post, index) => 
-    <PostCard post={post} principal={(index+1) % 10 === 1 || (index+1) % 10 === 7} />
+    <PostCard post={post} principal={(index+1) % 10 === 1 || (index+1) % 10 === 7}  itemReveal={animateReveal} />
   )}
+  {showMore && <div class="w-full lg:col-span-2 text-center place-content-center opacity-0 reveal-item">
+    <a href="/blog" class="group text-primary/60 hover:text-primary font-semibold transition-all duration-1000">Ver más artículos <ArrowNarrowRight class="size-5 inline relative -top-[3px] group-hover:translate-x-[6px] transition-transform duration-1000" /></a>
+  </div>}
 </Section>
