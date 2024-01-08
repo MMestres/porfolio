@@ -7,7 +7,7 @@ interface Props {
   class?: string
 }
 
-const { title, subtitle, background } = Astro.props
+const { title, subtitle } = Astro.props
 ---
 <article class={`${Astro.props.class} relative rounded-xl backdrop-blur-md border border-secondary/30 shadow-inner shadow-white/10`}>
   <h3>{title}</h3>

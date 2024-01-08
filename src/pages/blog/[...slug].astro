@@ -1,20 +1,28 @@
 ---
 import Prose from '../../components/blog/Prose.astro';
-import { getEntry } from "astro:content";
+import { getCollection, getEntry } from "astro:content";
 import LayoutBlog from '../../layouts/LayoutBlog.astro';
-// 1. Get the slug from the incoming server request
+
 const { slug } = Astro.params;
 if (slug === undefined) {
   throw new Error("Slug is required");
 }
-// 2. Query for the entry directly using the request slug
+
 const entry = await getEntry("blog", slug);
-// 3. Redirect if the entry does not exist
 if (entry === undefined) {
   return Astro.redirect("/404");
 }
-// 4. (Optional) Render the entry to HTML in the template
+
 const { Content } = await entry.render();
+
+export async function getStaticPaths() {
+  const allBlogPosts = await getCollection('blog');
+  return allBlogPosts.map(({ slug }) => {
+    return {
+      params: { slug }
+    };
+  });
+}
 ---
 <LayoutBlog title={`${entry.data.title} | Blog | Manuel Mestres`} description={entry.data.subtitle}>
   <div class="max-w-6xl mx-auto w-full px-4 xl:px-0 pt-24">

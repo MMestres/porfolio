@@ -5,6 +5,14 @@ import { getCollection } from 'astro:content';
 
 const allBlogPosts = await getCollection('blog');
 
+export async function getStaticPaths() {
+  return allBlogPosts.map(({ slug }) => {
+    return {
+      params: { slug }
+    };
+  });
+}
+
 const visiblePosts = [...allBlogPosts].sort((a, b) => {
   return b.data.date.getDate() - a.data.date.getDate();
 });
