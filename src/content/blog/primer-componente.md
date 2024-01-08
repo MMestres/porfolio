@@ -3,7 +3,7 @@ title: Primer componente
 subtitle: Generador y lector de códigos QR.
 slug: primer-componente
 date: 2024-01-06
-image: /qr-code.webp
+image: /project/qr-code.webp
 ---
 # Primer componente
 ## Generador y lector de códigos QR

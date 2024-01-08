@@ -1,17 +1,16 @@
 ---
+import PostList from "../../components/blog/PostList.astro";
 import LayoutBlog from "../../layouts/LayoutBlog.astro";
-import { getCollection, getEntry } from 'astro:content';
+import { getCollection } from 'astro:content';
 
-// Get all entries from a collection.
-// Requires the name of the collection as an argument.
-// Example: retrieve `src/content/blog/**`
 const allBlogPosts = await getCollection('blog');
+
+const visiblePosts = [...allBlogPosts].sort((a, b) => {
+  return b.data.date.getDate() - a.data.date.getDate();
+});
 ---
 <LayoutBlog title="Blog" description="Blog de la página de Manuel Mestres. Full-stack developer.">
-  {allBlogPosts.map((post) => (
-    <div>
-      <a href={`/blog/${post.slug}`}>{post.data.title}</a>
-      <p>{post.data.subtitle}</p>
-    </div>
-  ))
+  <PostList title="Blog" posts={visiblePosts}>
+    <p class="text-principal/90 text-lg lg:text-xl animate-fade animate-duration-1000 animate-delay-300">Los últimos artículos del blog donde hablo de los proyectos que voy realizando y algunas cosas interesantes que encuentro.</p>
+  </PostList>
 </LayoutBlog>

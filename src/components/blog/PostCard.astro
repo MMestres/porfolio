@@ -1,0 +1,33 @@
+---
+import PostDate from './PostDate.astro';
+interface Props {
+  post: {
+    id: string,
+    slug: string,
+    body: string,
+    collection: "blog";
+    data: {
+        title: string;
+        date: Date;
+        subtitle: string;
+        image?: string | undefined;
+    };
+  }
+  principal?: boolean
+}
+const post = Astro.props.post
+const principal = Astro.props.principal
+---
+<a href={`/blog/${post.slug}`} class={`group relative p-4 border border-transparent rounded-lg hover:border-principal/10 hover:bg-background/40 hover:backdrop-blur-sm flex flex-row ${principal ? 'lg:row-span-2 lg:items-end' : ''} items-center transition-all duration-1000 hover:shadow-md shadow-background/60`}>
+  {principal && <span class="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-transparent to-background z-10"></span>}
+  <div class="flex flex-row items-center gap-4">
+    <PostDate date={post.data.date} class='z-20' />
+    <span class="z-20 flex-grow flex-col justify-center items-center w-full">
+      <span class={`${principal ? 'text-xl lg:text-2xl' : 'text-xl'} font-bold text-secondary`}>{post.data.title}</span>
+      <span class="text text-sm block">{post.data.subtitle}</span>
+    </span>
+    <span class={`${principal ? 'lg:absolute lg:inset-0' : ''} z-0 overflow-hidden border shadow-md border-background/80 shadow-background/60`}>
+      <img src={post.data.image} class={`object-cover object-center ${principal ? 'aspect-video w-64 lg:w-full lg:h-full' : 'aspect-video w-64'} group-hover:scale-125 transition-all duration-1000`} />
+    </span>
+  </div>
+</a>

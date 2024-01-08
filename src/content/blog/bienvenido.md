@@ -3,7 +3,7 @@ title: ¡Bienvenido!
 subtitle: Año nuevo, propósitos nuevos
 slug: bienvenido
 date: 2024-01-02
-image: /this.webp
+image: /project/this.webp
 ---
 # ¡Bienvenido!
 ## Año nuevo, propósitos nuevos

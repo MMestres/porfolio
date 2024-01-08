@@ -27,10 +27,10 @@ const { title, description } = Astro.props;
 		<Background />
 		<Light />
 		<Header fixed />
-		<main class="z-10 py-24 max-w-6xl mx-auto px-4 xl:px-0">
+		<main class="z-10">
 			<slot />
+			<Footer bottom />
 		</main>
-		<Footer bottom />
 	</body>
 </html>
 <style is:global>

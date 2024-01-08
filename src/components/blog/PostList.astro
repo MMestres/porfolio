@@ -1,0 +1,32 @@
+---
+import Section from "../layout/Section.astro";
+import SectionSeparator from "../layout/SectionSeparator.astro";
+import PostCard from "./PostCard.astro";
+
+interface Props {
+  posts : Array<{
+    id: string,
+    slug: string,
+    body: string,
+    collection: "blog";
+    data: {
+        title: string;
+        date: Date;
+        subtitle: string;
+        image?: string | undefined;
+    };
+  }>
+  title: string
+}
+
+const posts = Astro.props.posts;
+
+---
+<SectionSeparator title={Astro.props.title} autoreveal>
+  <slot/>
+</SectionSeparator>
+<Section class="grid grid-cols-1 lg:grid-cols-2 gap-2" separator>
+  {posts.map((post, index) => 
+    <PostCard post={post} principal={(index+1) % 10 === 1 || (index+1) % 10 === 7} />
+  )}
+</Section>

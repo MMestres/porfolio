@@ -1,0 +1,14 @@
+---
+interface Props {
+  date: Date
+  class?: string
+}
+
+const date = Astro.props.date
+const day = date.getDate()
+const month = date.toLocaleDateString('es-ES', { month: 'short' })
+---
+<span class={`flex flex-col items-center ${Astro.props.class} gap-1 bg-primary/30 p-2 rounded-lg`}>
+  <span class="text-xl font-semibold leading-4">{day.toString().padStart(2, '0')}</span>
+  <span class="uppercase font-semibold leading-3">{month}</span>
+</span>
