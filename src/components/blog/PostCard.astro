@@ -1,0 +1,36 @@
+---
+import PostDate from './PostDate.astro';
+interface Props {
+  post: {
+    id: string,
+    slug: string,
+    body: string,
+    collection: "blog";
+    data: {
+        title: string;
+        date: Date;
+        subtitle: string;
+        image?: string | undefined;
+    };
+  }
+  principal?: boolean
+  itemReveal?: boolean
+}
+const post = Astro.props.post
+const principal = Astro.props.principal
+const itemReveal = Astro.props.itemReveal ?? false
+---
+<a href={`/blog/${post.slug}`} class={`group relative p-4 border border-transparent rounded-lg hover:bg-background/40 hover:backdrop-blur-sm flex flex-row ${principal ? 'lg:row-span-2 lg:items-end' : ''} items-center transition-all duration-1000 hover:shadow-md shadow-background/60 w-full ${itemReveal ? 'reveal-item opacity-0' : 'animate-fade animate-duration-1000 animate-delay-500'}`}>
+  {principal && <span class="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-transparent to-background z-10 rounded-lg hidden lg:block"></span>}
+  <div class="grid grid-cols-[auto,1fr] md:flex md:flex-row items-center gap-4 rounded-lg w-full">
+    <PostDate date={post.data.date} class='z-20' />
+    <span class="z-20 flex-grow flex-col justify-center items-center w-full">
+      <span class={`${principal ? 'text-xl lg:text-2xl' : 'text-xl'} font-bold text-secondary`}>{post.data.title}</span>
+      <span class="text text-sm block">{post.data.subtitle}</span>
+    </span>
+    <span class={`${principal ? 'lg:absolute lg:inset-0' : ''} z-0 overflow-hidden border shadow-md border-background/80 shadow-background/60 rounded-lg col-span-2 w-full md:w-auto
+    `}>
+      <img src={post.data.image} class={`object-cover object-center ${principal ? 'aspect-video w-full md:w-64 lg:w-full lg:h-full' : 'aspect-video w-full md:w-64'} rounded-lg group-hover:scale-125 transition-all duration-1000`} />
+    </span>
+  </div>
+</a>

@@ -1,0 +1,49 @@
+---
+import Prose from '../../components/blog/Prose.astro';
+import { getCollection, getEntry } from "astro:content";
+import LayoutBlog from '../../layouts/LayoutBlog.astro';
+
+const { slug } = Astro.params;
+if (slug === undefined) {
+  throw new Error("Slug is required");
+}
+
+const entry = await getEntry("blog", slug);
+if (entry === undefined) {
+  return Astro.redirect("/404");
+}
+
+const { Content } = await entry.render();
+
+export async function getStaticPaths() {
+  const allBlogPosts = await getCollection('blog');
+  return allBlogPosts.map(({ slug }) => {
+    return {
+      params: { slug }
+    };
+  });
+}
+---
+<LayoutBlog title={`${entry.data.title} | Blog | Manuel Mestres`} description={entry.data.subtitle}>
+  <div class="max-w-6xl mx-auto w-full px-4 xl:px-0 pt-24">
+    <div class="text-center text-principal flex flex-col gap-2 text-wrap">
+      <h1 class="text-4xl lg:text-6xl font-semibold text-primary animate-fade animate-delay-100 animate-duration-1000">{entry.data.title}</h1>
+      <p class="text-xl lg:text-2xl animate-fade animate-duration-1000 animate-delay-200">{entry.data.subtitle}</p>
+      <p class="text-sm lg:text-normal text-principal/80  animate-fade animate-duration-1000 animate-delay-300">
+        {entry.data.date.toLocaleString('es-ES', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+      })}
+      </p>
+    </div>
+    <div class="w-full aspect-vide rounded-lg overflow-hidden border border-background/80 hover:shadow shadow-background/60 transition-all duration-1000 my-6 animate-fade animate-duration-1000 animate-delay-[400ms]">
+      <img src={entry.data.image} alt="Manuel Mestres" class="w-full aspect-vide rounded-lg object-cover object-center hover:scale-125 transition-all duration-1000" />
+    </div>
+  </div>
+  <div class="max-w-6xl mx-auto px-4 xl:px-0 pb-24 animate-fade animate-duration-1000 animate-delay-500">
+    <Prose>
+      <Content />
+    </Prose>
+  </div>
+</LayoutBlog>

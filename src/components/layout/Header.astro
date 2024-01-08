@@ -1,4 +1,8 @@
-<header class="fixed z-30 backdrop-blur-sm w-full bg-background/70 py-2 animate-fade-down animate-duration-1000 hidden">
+---
+const fixed = Astro.props.fixed === true
+---
+
+<header class={`fixed z-30 backdrop-blur-sm w-full bg-background/70 py-2 animate-fade-down animate-duration-1000 ${!fixed ? 'hidden' : ''}`}>
   <div class="flex flex-row justify-between items-center max-w-6xl mx-auto px-4 xl:px-0">
     <div class="flex flex-row items-center">
       <img src="/people/mmestres.webp" alt="Foto de Manuel Mestres" class="size-9 rounded-full bg-secondary">
@@ -8,10 +12,11 @@
       </div>
     </div>
     <nav class="flex-row gap-4 z-50 hidden lg:flex items-center">
-      <a class="hover:text-secondary hover:scale-105 transition-all duration-600" href="#top">Inicio</a>|
-      <a class="hover:text-secondary hover:scale-105 transition-all duration-600" href="#work-experience">Experiencia</a>|
-      <a class="hover:text-secondary hover:scale-105 transition-all duration-600" href="#projects">Proyectos</a>|
-      <a class="hover:text-secondary hover:scale-105 transition-all duration-600" href="#training">Formación</a>
+      <a class="hover:text-secondary hover:scale-105 transition-all duration-600" href="/#top">Inicio</a>|
+      <a class="hover:text-secondary hover:scale-105 transition-all duration-600" href="/#work-experience">Experiencia</a>|
+      <a class="hover:text-secondary hover:scale-105 transition-all duration-600" href="/#projects">Proyectos</a>|
+      <a class="hover:text-secondary hover:scale-105 transition-all duration-600" href="/#training">Formación</a>|
+      <a class="hover:text-secondary hover:scale-105 transition-all duration-600" href="/blog">Blog</a>
     </nav>
     <div class="lg:hidden">
       <button class="menu-button menu-button-close">
@@ -23,9 +28,10 @@
     </div>
   </div>
   <nav class="menu hidden grid-cols-1 animate-duration-100 gap-1 py-4 text-center">
-    <a class="animate-fade-down animate-duration-1000 animate-delay-100 py-2" href="#top">Inicio</a>
-    <a class="animate-fade-down animate-duration-1000 animate-delay-200 py-2" href="#work-experience">Experiencia</a>
-    <a class="animate-fade-down animate-duration-1000 animate-delay-300 py-2" href="#projects">Proyectos</a>
-    <a class="animate-fade-down animate-duration-1000 animate-delay-[400ms] py-2" href="#training">Formación</a>
+    <a class="animate-fade-down animate-duration-1000 animate-delay-100 py-2" href="/#top">Inicio</a>
+    <a class="animate-fade-down animate-duration-1000 animate-delay-200 py-2" href="/#work-experience">Experiencia</a>
+    <a class="animate-fade-down animate-duration-1000 animate-delay-300 py-2" href="/#projects">Proyectos</a>
+    <a class="animate-fade-down animate-duration-1000 animate-delay-[400ms] py-2" href="/#training">Formación</a>
+    <a class="animate-fade-down animate-duration-1000 animate-delay-500 py-2" href="/blog">Blog</a>
   </nav>
 </header>
