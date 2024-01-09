@@ -4,13 +4,13 @@ const fixed = Astro.props.fixed === true
 
 <header class={`fixed z-30 backdrop-blur-sm w-full bg-background/70 py-2 animate-fade-down animate-duration-1000 ${!fixed ? 'hidden' : ''}`}>
   <div class="flex flex-row justify-between items-center max-w-6xl mx-auto px-4 xl:px-0">
-    <div class="flex flex-row items-center">
-      <img src="/people/mmestres.webp" alt="Foto de Manuel Mestres" class="size-9 rounded-full bg-secondary">
-      <div class="flex flex-col ml-6">
-        <p class="text-lg font-semibold leading-none text-principal">Manuel Mestres</p>
-        <p class="text-sm text-secondary">Full-stack developer</p>
-      </div>
-    </div>
+    <a href="/#top" class="group flex flex-row items-center">
+      <img src="/people/mmestres.webp" alt="Foto de Manuel Mestres" class="size-9 rounded-full bg-secondary group-hover:animate-pulseprimary">
+      <span class="flex flex-col ml-6">
+        <span class="text-lg font-semibold leading-none text-principal group-hover:text-primary">Manuel Mestres</span>
+        <span class="text-sm text-secondary">Full-stack developer</span>
+      </span>
+    </a>
     <nav class="flex-row gap-4 z-50 hidden lg:flex items-center">
       <a class="hover:text-secondary hover:scale-105 transition-all duration-600" href="/#top">Inicio</a>|
       <a class="hover:text-secondary hover:scale-105 transition-all duration-600" href="/#work-experience">Experiencia</a>|
