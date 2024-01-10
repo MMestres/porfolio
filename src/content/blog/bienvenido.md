@@ -19,14 +19,14 @@ Quede constancia aquí de estos propósitos y **gracias por leerme**
 
 Propósitos primer trimestre:
 1. Semana 1: ✅ [Generador y lector de códigos QR](/blog/primer-componente)
-2. Semana 2: 🕙 Lista de tareas
-3.  Semana 3: ✅ [Página corporativa para un estudio de grabación](/blog/audio-y-bento)
-4. Semana 4: ❔
-5. Semana 5: ❔
-6. Semana 6: ❔
-7. Semana 7: ❔
-8. Semana 8: ❔
-9. Semana 9: ❔
-10. Semana 10: ❔
-11. Semana 11: ❔
-12. Semana 12: ❔
+2. Semana 2: ✅ [Lista de tareas](/blog/lista-de-tareas)
+3. Semana 3: ✅ [Página corporativa para un estudio de grabación](/blog/audio-y-bento)
+5. Semana 4: ❔
+6. Semana 5: ❔
+7. Semana 6: ❔
+8. Semana 7: ❔
+9.  Semana 8: ❔
+10. Semana 9: ❔
+11. Semana 10: ❔
+12. Semana 11: ❔
+13. Semana 12: ❔

@@ -1,3 +1,12 @@
-<div class="relative w-screen bg-transparent -z-20 overflow-hidden">
-  <div class="fixed inset-0 -top-[65vh] -left-[65vh] w-[150vh] lg:-top-[65vw] lg:-left-[65vw] lg:w-[130vw] aspect-square rounded-full bg-[radial-gradient(circle_farthest-side,#ff00b630,rgba(255,255,255,0))] -z-10"></div>
+<div class="relative w-screen bg-transparent -z-10 overflow-hidden">
+  <div id="light-cursor" class="hidden lg:block fixed inset-0 w-[600px] aspect-square bg-[radial-gradient(circle_farthest-side,#ff00b630,rgba(255,255,255,0))] -z-10"></div>
 </div>
+<script>
+  const lightCursor = document.getElementById('light-cursor');
+  document.addEventListener('mousemove', (e) => {
+    if (lightCursor) {
+      lightCursor.style.top = `${e.clientY - 300}px`;
+      lightCursor.style.left = `${e.clientX - 300}px`;
+    }
+  });
+</script>

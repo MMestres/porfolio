@@ -1,7 +1,7 @@
 ---
 const autoreveal = Astro.props.autoreveal
 ---
-<div id={Astro.props.id} class={`w-full bg-background/60 text-center text-principal ${Astro.props.class}`}>
+<div id={Astro.props.id} class={`w-full bg-gradient-to-b from-background to-background/40 text-center text-principal ${Astro.props.class}`}>
   <div class="px-8 lg:px-0 max-w-3xl flex flex-col gap-6 mx-auto pt-24 pb-12 text-pretty">
     <h2 class={`text-primary text-3xl lg:text-4xl font-semibold ${autoreveal === true ? 'animate-fade' : 'reveal-item opacity-0'} animate-duration-1000 animate-delay-300`}>{Astro.props.title}</h2>
     <slot />
