@@ -2,7 +2,7 @@
 title: Lista de tareas
 subtitle: Segunda semana.
 slug: lista-de-tareas
-date: 2024-01-11
+date: 2024-01-10
 image: /project/to-do.webp
 ---
 Ya tengo otro componente.
